@@ -1,0 +1,12 @@
+{
+  "name": "js-oo-bit-bank",
+  "version": "1.0.0",
+  "description": "Controle de contas agencia BitBank",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "type": "module"
+}

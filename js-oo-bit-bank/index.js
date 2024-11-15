@@ -1,27 +1,27 @@
-class Cliente{  // a classe seria como um molde
-    nome;
-    cpf;
-    agencia;
-    saldo;
-    rg;
-}
-
+import { Cliente } from "./Cliente.js";
+import {ContaCorrente} from "./ContaCorrente.js";
 
 const cliente1 = new Cliente(); // Criando um objeto OU criando uma instância da classe Cliente
 cliente1.nome = "Cida";
 cliente1.cpf = 11122233309;
-cliente1.agencia = 1001;
-cliente1.saldo = 0;
 cliente1.rg = 154263987;
 
-console.log(cliente1);
-
 const cliente2 = new Cliente();
-cliente2.cpf = 88822233309;
 cliente2.nome = "Alice";
-cliente2.agencia = 1001;
-cliente2.saldo = 0;
+cliente2.cpf = 88822233309;
 
-console.log(cliente2);
+console.log(cliente1);
+console.log(cliente2, "\n");
 
-console.log(cliente1,cliente2);
+const contaCorrenteC1 = new ContaCorrente();
+contaCorrenteC1.agencia = 1001;
+
+contaCorrenteC1.depositar(100);
+contaCorrenteC1.depositar(100);
+// console.log(contaCorrenteC1.saldo); // 100  (nao posso mais acessar atributo privado por aqui)
+contaCorrenteC1.depositar(-10); // o método depositar não permite valor negativo, embora eu esteja tentando isso
+
+const valorSacado = contaCorrenteC1.sacar(50); // chamando método sacar
+console.log(valorSacado);
+
+console.log(contaCorrenteC1);  // imprime os dados da agência (saldo privado com # nao imprime, com _ imprime).
