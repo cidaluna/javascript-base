@@ -4,6 +4,8 @@ import { Cliente } from './Cliente.js';
 export class ContaCorrente{ // Criado a classe ContaCorrente como um molde e o saldo é um atributo privado
     agencia;
     _cliente;
+    _saldo = 0;
+    static qtdDeContas = 0;
 
     // definindo assessores get (faz a leitura) e set (recupera)
     set cliente(novoValor){
@@ -16,11 +18,17 @@ export class ContaCorrente{ // Criado a classe ContaCorrente como um molde e o s
         return this._cliente;
     }
     
-    _saldo = 0;
 
     // melhor encapsulamento pois só permite ler o saldo
     get saldo(){
         return this._saldo;
+    }
+
+    // construtores servem para inicializar os atributos
+    constructor(cliente, agencia){
+        this._cliente = cliente;
+        this.agencia = agencia;
+        ContaCorrente.qtdDeContas += 1;  // é uma soma de todas as contas e nao algo individual
     }
 
     depositar(valor){
