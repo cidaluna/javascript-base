@@ -15,6 +15,7 @@ console.log(cliente2, "\n");
 
 const contaCorrenteC1 = new ContaCorrente();
 contaCorrenteC1.agencia = 1001;
+contaCorrenteC1.cliente = cliente1;
 
 contaCorrenteC1.depositar(100);
 contaCorrenteC1.depositar(100);
@@ -23,5 +24,9 @@ contaCorrenteC1.depositar(-10); // o método depositar não permite valor negati
 
 const valorSacado = contaCorrenteC1.sacar(50); // chamando método sacar
 console.log(valorSacado);
-
 console.log(contaCorrenteC1);  // imprime os dados da agência (saldo privado com # nao imprime, com _ imprime).
+
+const conta2 = new ContaCorrente();
+conta2.cliente = cliente2;
+conta2.agencia = 102;
+console.log(conta2);
