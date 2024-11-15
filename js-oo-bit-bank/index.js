@@ -30,3 +30,12 @@ const conta2 = new ContaCorrente();
 conta2.cliente = cliente2;
 conta2.agencia = 102;
 console.log(conta2);
+
+// Transferência
+contaCorrenteC1.transferir(10,conta2);
+console.log(contaCorrenteC1);
+console.log(conta2);
+
+// Acessar só o cliente da conta 2
+console.log("\nRetornando o cliente da conta2: ");
+console.log(conta2._cliente);
