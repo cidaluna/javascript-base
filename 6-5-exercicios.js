@@ -58,8 +58,10 @@ const lista = [alunos, medias];
 
 function exibeNomeENota(aluno){
   if (lista[0].includes(aluno)){ // includes retorna true ou false
-    const indice = lista[0].indexOf(aluno); // indexOf retorna o indice da 1ª ocorrencia do valor fornecido
-    const mediaAluno = lista[1][indice];
+    // desestruturando a lista
+    const [alunosDes, mediasDes] = lista;
+    const indice = alunosDes.indexOf(aluno); // indexOf retorna o indice da 1ª ocorrencia do valor fornecido
+    const mediaAluno = mediasDes[indice];
     console.log(`${aluno} tem a média ${mediaAluno}.`);
   } else {
     console.log('Estudante nao existe na lista!');
