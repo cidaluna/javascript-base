@@ -49,3 +49,22 @@ console.log(matriz[1][2]);
 //7-Adicione um novo elemento (por exemplo,15) na terceira linha e segunda coluna da lista bidimensional matriz criada anteriormente.
 matriz[2][1] = 15;
 console.log(matriz);
+
+//8-Crie uma funcao que recebe como argumento o nome de um aluno. Verifique se a pessoa faz parte da lista de alunos. Retorne a média do aluno correspondente na lista de médias.
+
+const alunos = ["Joao", "Davi", "Luna", "Elaine"];
+const medias = [10,8,9,9];
+const lista = [alunos, medias];
+
+function exibeNomeENota(aluno){
+  if (lista[0].includes(aluno)){ // includes retorna true ou false
+    const indice = lista[0].indexOf(aluno); // indexOf retorna o indice da 1ª ocorrencia do valor fornecido
+    const mediaAluno = lista[1][indice];
+    console.log(`${aluno} tem a média ${mediaAluno}.`);
+  } else {
+    console.log('Estudante nao existe na lista!');
+  }
+}
+
+exibeNomeENota('Luna');
+exibeNomeENota('Angélica');
