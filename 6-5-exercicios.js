@@ -70,3 +70,22 @@ function exibeNomeENota(aluno){
 
 exibeNomeENota('Luna');
 exibeNomeENota('Angélica');
+
+//9-Imprima no console cada item do array junto com seu indice.
+const notas = [10,8.5,5,6.5,8,7.5];
+
+for(let i=0;i<notas.length;i++){
+  console.log(`Índice: ${i}, nota: ${notas[i]}`);
+}
+
+//10-Somar as notas do array
+
+const notasMes = [10,10,2,5,7,5.5];
+let somaDasNotas = 0;
+
+for(const element of notasMes){
+  somaDasNotas += element;
+}
+console.log(somaDasNotas);
+const mediaNotas = somaDasNotas / notasMes.length;
+console.log(`A média das notas é ${mediaNotas.toFixed(2)}.`);
