@@ -155,3 +155,131 @@ for (let i = 0; i < numerosA.length; i++) {
 }
 
 console.log(`Posição do número ${numeroProcurado}: ${posicao}`);
+
+//17-Você recebeu dois arrays de nomes contendo os alunos da Turma A e da Turma B. Utilize o método concat() para unir os arrays das turmas A e B em um único array chamado todasAsTurmas. Depois, utilize o método find() para buscar um aluno específico pelo nome no array todosAlunos. Exiba no console uma mensagem informando o nome do aluno procurado; caso não exista na lista, retorne uma mensagem de aviso, por exemplo Aluno não encontrado.
+
+const nomesTurmaA = [
+  'João Silva',
+  'Maria Santos',
+  'Pedro Almeida'
+];
+
+const nomesTurmaB = [
+  'Carlos Oliveira',
+  'Ana Souza',
+  'Lucas Fernandes'
+];
+
+const todasAsTurmas = nomesTurmaA.concat(nomesTurmaB);
+console.log(todasAsTurmas);
+
+const alunoProcurado = todasAsTurmas.find(nome => nome === 'Lucas Fernandes');
+
+if(alunoProcurado){
+  console.log('Aluno encontrado: ', alunoProcurado);
+} else {
+  console.log('Aluno nao encontrado');
+}
+
+//18-Considere um array de números inteiros.Utilize o método forEach() para multiplicar cada elemento do array por 3 e exibir o resultado de cada multiplicação. Depois, utilize o método findIndex() para encontrar o índice do número 18 no array.
+const num = [6, 9, 12, 15, 18, 21];
+
+console.log('Elementos do array multiplicados por 3:');
+
+num.forEach(numero => {
+  const resultado = numero * 3;
+  console.log(resultado);
+});
+
+const indiceDoNumero18 = num.findIndex(numero => numero === 18);
+
+if (indiceDoNumero18 !== -1) {
+  console.log(`O número 18 está num array no índice ${indiceDoNumero18}.`);
+} else {
+  console.log('O número 18 não está presente no array.');
+}
+
+//19-Dado um array de alunos e suas médias, exibir o nome do aluno que está reprovado, pois teve média menor que 7.
+const nom = ['Ana', 'Marcos', 'Maria', 'Mauro'];
+const med = [7, 4.5, 8, 5.5];
+
+//Quando a função callback retorna verdadeiro, ou true, o elemento é adicionado no novo array, e quando ela retorna falso, ou false, o elemento é descartado.
+const reprovados = nom.filter((aluno, indice) => {
+  return med[indice] < 7;
+});
+
+console.log("Reprovados: ",reprovados);
+
+//20-Com a media de todos os alunos das 3 salas, calcule a media geral de cada sala
+const salaJS = [7,8,8,7,10,6.5,4,10,7];
+const salaJava = [6,5,8,9,5,6];
+const salaPython = [7,3.5,8,9.5];
+
+function calculaMedia(listNotas){
+  const somaDasNotasA = listNotas.reduce((acumulador, nota) => {
+    return acumulador + nota;
+  }, 0);
+
+  const mediaA = somaDasNotasA / listNotas.length;
+  return mediaA;
+}
+
+console.log(calculaMedia(salaJS));
+console.log(calculaMedia(salaJava));
+console.log(calculaMedia(salaPython));
+
+//21-Considere a lista de notas [7,7,8,9], crie uma nova lista adicionando a nota 10, sem alterar a lista original
+
+const no = [7,7,8,9];
+
+// spread operator para manter os dados (clonar) e o 10 para ser adicionado ao final do array
+const novaListaNotas = [...no, 10]; 
+
+console.log(no);
+console.log(novaListaNotas);
+
+//22-Remover dados duplicados do array
+const dados = ["Ana", "Clara", "Maria", "Maria", "João", "João", "João"];
+
+const nomesAtualizados = new Set(dados); // Set é um conjunto de valores únicos, mas ele não tem acesso aos métodos de array, ele só parece um array mas não é.
+
+const listaNomesAtualizados = [...nomesAtualizados];
+console.log(nomesAtualizados);
+console.log(typeof nomesAtualizados);
+console.log(listaNomesAtualizados);
+console.log(typeof listaNomesAtualizados);
+
+//23-Unir as listas e remover os duplicados
+const coresLista1 = ['Vermelho', 'Verde', 'Azul', 'Amarelo', 'Vermelho'];
+const coresLista2 = ['Laranja', 'Verde', 'Roxo', 'Azul'];
+
+const coresUnicas = [...new Set([...coresLista1, ...coresLista2])];
+console.log('Cores sem repetir: ', coresUnicas);
+
+//24-Escreva uma função que receba um array de números e retorne um array contendo apenas os números pares
+function filtraNumerosPares(arr) {
+  return arr.filter(num => num % 2 === 0); // Filtra apenas os números pares
+}
+
+const numArray = [1, 2, 3, 4, 5, 6];
+const listaNumerosPares = filtraNumerosPares(numArray);
+console.log("Pares: ",listaNumerosPares);
+
+//25-Crie uma função que filtre os números de um array que são múltiplos de 3 e maiores que 5.
+const listaNumerosA = [3, 6, 9, 4, 12, 2, 7];
+
+function filtraNumeros(arr) {
+    return arr.filter(num => num % 3 === 0 && num > 5); // Filtra números múltiplos de 3 e maiores que 5
+}
+
+const numerosFiltrados = filtraNumeros(listaNumerosA);
+console.log("Múltiplos de 3 e maiores que 5: ",numerosFiltrados);
+
+//26-Crie uma função que receba um array de números e retorne a soma de todos os elementos.
+function somaElementosDoArray(arr) {
+  return arr.reduce((acum, atual) => acum + atual, 0); // Soma os elementos do array
+}
+
+const listaNumerosB = [1, 2, 3, 4, 5];
+const somaTotal = somaElementosDoArray(listaNumerosB);
+console.log("Soma: ",somaTotal);
